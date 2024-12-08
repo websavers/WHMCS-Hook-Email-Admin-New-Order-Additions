@@ -1,6 +1,8 @@
 <?php
 
 // Version 1.0
+// Currently adds:
+// - Whether this is the client's first order or not
 
 //use WHMCS\Database\Capsule;
 
