@@ -25,12 +25,10 @@ add_hook('EmailPreSend', 1, function($vars) {
 
     // https://developers.whmcs.com/api-reference/getorders/
     $results = localAPI('GetOrders', array('userid' => $clientid));
-    
-    $firstorder = ($results['numreturned'] == 1)? true:false;
-	
+    	
     $merge_fields = [];
     if (!array_key_exists('client_firstorder', $vars['mergefields'])) {
-        $merge_fields['client_firstorder'] = $firstorder;
+        $merge_fields['client_firstorder'] = ($results['numreturned'] == 1)? 'Yes':'No';
     }
     return $merge_fields;
 
